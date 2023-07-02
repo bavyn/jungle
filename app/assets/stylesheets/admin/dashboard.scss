@@ -1,0 +1,33 @@
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .card {
+    border: 0.1em solid rgba(0, 130, 29, 0.8);
+    padding: 1em;
+    background-color: #F5F5F5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(0, 130, 29, 0.8);
+      color: white;
+
+      .card-title,
+      .card-text {
+        color: white;
+      }
+    }
+
+    .card-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: rgba(0, 130, 29, 0.8);
+    }
+
+    .card-text {
+      font-size: 18px;
+    }
+  }
+}

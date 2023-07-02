@@ -4,10 +4,21 @@
     <h1>Admin Dashboard</h1>
   </header>
 
-  <div>
-    <p>Products in the jungle: <%= @product_count %></p>
+  <div class="card-container">
 
-    <p>Categories in the jungle: <%= @category_count %></p>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Products</h4>
+        <p class="card-text">in the jungle: <%= @product_count %></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Categories</h4>
+        <p class="card-text">in the jungle: <%= @category_count %></p>
+      </div>
+    </div>
   </div>
 
 </section>
