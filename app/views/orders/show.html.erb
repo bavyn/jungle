@@ -2,11 +2,29 @@
 
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
+
   </header>
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+
+    <h5>Your order contains the following items:</h5>
+    <ul>
+      <% @order.line_items.each do |line_item| %>
+        <li>
+          <%= line_item.product.name %>
+          <p>Quantity: <%= line_item.quantity %></p>
+          <p>Price: <%= humanized_money_with_symbol line_item.item_price %></p>
+        </li>
+      <% end %>
+    </ul>
+
+    <p>Total: <%= humanized_money_with_symbol (@order.total_cents / 100.0).round(2) %></p>
+
+
+
   </div>
+
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
