@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get '/about', to: 'about#index'
   # resource :about, only: [:index]
 
+  get '/register', to: 'users#new'
+  post '/users', to: 'users#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
