@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/'
     else
+      flash[:error] = "Registration failed. Please complete all fields."
       redirect_to '/register'
     end
   end
