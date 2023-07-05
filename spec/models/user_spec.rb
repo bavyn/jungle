@@ -89,5 +89,10 @@ RSpec.describe User, type: :model do
       expect(auth_user).to eq(@user)
     end
 
+    it 'ignores leading and trailing whitespace in the email field' do
+      auth_user = User.authenticate_with_credentials('  alyssa@example.com ', 'password')
+      expect(auth_user).to eq(@user)
+    end
+
   end
 end
