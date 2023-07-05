@@ -24,6 +24,20 @@ RSpec.describe User, type: :model do
       expect(user).to eq(false)
     end
 
+    it 'is invalid when the password is empty' do
+      user = User.new(password: nil).save
+      expect(user).to eq(false)
+    end
+
+    it 'is invalid when the password confirmation is empty' do
+      user = User.new(password_confirmation: nil).save
+      expect(user).to eq(false)
+    end
+
+    it 'is invalid when password and password confirmation do not match' do
+      user = User.new(password: 'aaaaaaaaaaaa', password_confirmation: 'bbbbbbbbbbbb').save
+      expect(user).to eq(false)
+    end
 
   end
 end
