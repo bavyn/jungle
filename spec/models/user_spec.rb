@@ -56,8 +56,38 @@ RSpec.describe User, type: :model do
       expect(user).not_to be_valid
       expect(user.errors[:password]).to include('is too short (minimum is 8 characters)')
     end
+  end
 
+  describe '.authenticate_with_credentials' do
+    before do
+      @user = User.create(
+        first_name: 'Alyssa',
+        last_name: 'Edwards',
+        email: 'alyssa@example.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+    end
 
+    it 'returns a user if the email and password match' do
+      auth_user = User.authenticate_with_credentials('alyssa@example.com', 'password')
+      expect(auth_user).to eq(@user)
+    end
+
+    it 'returns nil if the password does not match the email' do
+      auth_user = User.authenticate_with_credentials('alyssa@example.com', 'ejfgvseilgfrlie')
+      expect(auth_user).to be_nil
+    end
+
+    it 'returns nil if the email is not associated to a user' do
+      auth_user = User.authenticate_with_credentials('bademail@example.com', 'password')
+      expect(auth_user).to be_nil
+    end
+
+    it 'email is not case-sensitive' do
+      auth_user = User.authenticate_with_credentials('ALYssa@exaMple.COm', 'password')
+      expect(auth_user).to eq(@user)
+    end
 
   end
 end
