@@ -49,5 +49,17 @@ RSpec.describe Product, type: :model do
       product.save
       expect(product.errors[:category]).to include("can't be blank")
     end
+
+    it 'is invalid when the price is empty' do
+      category = Category.create(name: 'Cactus')
+      product = Product.new(
+        name: 'Moon Cactus',
+        price_cents: nil,
+        quantity: 10,
+        category: category
+      )
+      product.save
+      expect(product.errors[:price]).to include("can't be blank")
+    end
   end
 end
