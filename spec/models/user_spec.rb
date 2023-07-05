@@ -39,5 +39,16 @@ RSpec.describe User, type: :model do
       expect(user).to eq(false)
     end
 
+    it 'is invalid when the email is empty' do
+      user = User.new(email: nil).save
+      expect(user).to eq(false)
+    end
+
+    it 'is invalid with a duplicate email, not case sensitive' do
+      existing_user = User.new(email: "a@a.com").save
+      new_user = User.new(email: "a@a.com").save
+      expect(new_user).to eq(false)
+    end
+
   end
 end
