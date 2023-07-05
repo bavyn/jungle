@@ -2,6 +2,12 @@
 
 A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
 
+## Welcome to the Jungle
+!["Home page"](https://github.com/bavyn/jungle/blob/master/docs/jungle_home.png?raw=true)
+!["Browse products"](https://github.com/bavyn/jungle/blob/master/docs/jungle_product_selection.png?raw=true)
+!["View product details"](https://github.com/bavyn/jungle/blob/master/docs/jungle_product.png?raw=true)
+!["Checkout"](https://github.com/bavyn/jungle/blob/master/docs/jungle_cart.png?raw=true)
+
 ## Setup
 
 1. Run `bundle install` to install dependencies
