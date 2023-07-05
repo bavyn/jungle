@@ -50,5 +50,14 @@ RSpec.describe User, type: :model do
       expect(new_user).to eq(false)
     end
 
+    it 'requires a minimum password length of 8 characters' do
+      user = User.new(password: '1234567')
+      user.save
+      expect(user).not_to be_valid
+      expect(user.errors[:password]).to include('is too short (minimum is 8 characters)')
+    end
+
+
+
   end
 end
